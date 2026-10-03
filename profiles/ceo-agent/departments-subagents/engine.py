@@ -18,9 +18,12 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from typing import Any, Callable, Iterable, Sequence
+from typing import Any, Callable, Sequence
 
-from registry import DEPARTMENTS, SPECS, SubagentSpec, by_department, get
+try:  # direct import: this directory itself on sys.path
+    from registry import DEPARTMENTS, SPECS, SubagentSpec, by_department, get
+except ImportError:  # package import: ``departments-subagents`` loaded from its parent
+    from .registry import DEPARTMENTS, SPECS, SubagentSpec, by_department, get
 
 
 class SubagentLaunchError(RuntimeError):

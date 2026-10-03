@@ -46,7 +46,10 @@ The engine lives at `departments-subagents/` inside the CEO profile
 
 ## How to Run
 
-From an active turn, build the payload and make one `delegate_task` call:
+From an active turn, build the payload and make one `delegate_task` call. The
+directory name contains a hyphen, so put **the engine directory itself** on
+`sys.path` and import `engine` directly — `import departments_subagents` is not
+valid Python and the package form needs `importlib`:
 
 ```python
 import sys
@@ -97,4 +100,6 @@ python engine.py coo-agent | python -c "import json,sys; print(len(json.load(sys
 ```
 
 The department count must match the roster table above: ceo-agent 3,
-cto-agent 4, coo-agent 4.
+cto-agent 4, coo-agent 4. The import-surface contract
+(`tests/profiles/ceo_agent/test_departments_subagents_imports.py`) pins both
+import styles end to end — if you change the module layout, run it.
