@@ -116,3 +116,12 @@ def test_runner_launch_all_collects_failures_per_subagent():
         "sop-process-analyst",
         "customer-experience-analyst",
     }
+
+
+def test_subagent_launch_request_is_accessible_from_engine():
+    """SubagentLaunchRequest must be importable from engine so __init__ can re-export it.
+
+    Regression guard for the bug where __init__.py listed SubagentLaunchRequest
+    in __all__ but never imported it from engine.
+    """
+    assert hasattr(engine, "SubagentLaunchRequest")
