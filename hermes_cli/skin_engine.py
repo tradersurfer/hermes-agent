@@ -60,6 +60,9 @@ def _wings(*glyphs) -> List[List[str]]:
 _HERMES_BRANDING: Dict[str, str] = _branding(
     "Hermes", "☤", "Goodbye! ☤", prompt="❯", help_header="(^_^)? Available Commands")
 
+_CEO_BRANDING: Dict[str, str] = _branding(
+    "CEO", "◆", "Meeting adjourned. ◆", prompt="❯", help_header="[?] Available Commands")
+
 _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
     "default": {
         "name": "default", "description": "Classic Hermes — gold and kawaii",
@@ -94,6 +97,21 @@ _BUILTIN_SKINS: Dict[str, Dict[str, Any]] = {
         "spinner": {},  # empty = hardcoded defaults in display.py
         "branding": _HERMES_BRANDING,
         "tool_prefix": "┊"},
+    "ceo-agent": {
+        "name": "ceo-agent", "description": "CEO Agent — violet on near-black",
+        "colors": {
+            "banner_border": "#3f3f46", "banner_title": "#a78bfa", "banner_accent": "#8b5cf6",
+            "banner_dim": "#71717a", "banner_text": "#fafafa", "ui_accent": "#8b5cf6",
+            "ui_label": "#a78bfa", "ui_ok": "#34d399", "ui_error": "#f87171", "ui_warn": "#f0c674",
+            "prompt": "#fafafa", "input_rule": "#8b5cf6", "response_border": "#a78bfa",
+            "status_bar_bg": "#0c0c0f", "status_bar_text": "#a1a1aa",
+            "status_bar_strong": "#a78bfa", "status_bar_dim": "#71717a",
+            "status_bar_good": "#34d399", "status_bar_warn": "#f0c674", "status_bar_bad": "#f97316",
+            "status_bar_critical": "#ef4444", "session_label": "#a78bfa",
+            "session_border": "#3f3f46", "completion_menu_bg": "#18181b",
+            "completion_menu_current_bg": "#27272a", "selection_bg": "#2e2e33",
+            "shell_dollar": "#a78bfa", "voice_status_bg": "#0c0c0f"},
+        "spinner": {}, "branding": _CEO_BRANDING, "tool_prefix": "┊"},
     "ares": {
         "name": "ares", "description": "War-god theme — crimson and bronze",
         "colors": {

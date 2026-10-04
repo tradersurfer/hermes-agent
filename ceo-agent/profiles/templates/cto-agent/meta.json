@@ -1,0 +1,9 @@
+{
+  "registry_id": "cto_agent",
+  "profile": "cto-agent",
+  "display": "CTO Agent",
+  "color": "hsl(198 68% 58%)",
+  "lane": "technology",
+  "reports_to": "ceo_agent",
+  "source": "technology/cto-agent"
+}

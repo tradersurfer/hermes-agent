@@ -1,0 +1,9 @@
+{
+  "registry_id": "hermes",
+  "profile": "coo-agent",
+  "display": "COO Agent",
+  "color": "hsl(32 90% 58%)",
+  "lane": "operations / workflow execution",
+  "reports_to": "ceo_agent",
+  "source": "operations/hermes"
+}

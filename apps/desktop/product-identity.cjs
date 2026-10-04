@@ -15,6 +15,7 @@ const variants = {
     kebab: 'hermes-light',
     pascal: 'HermesLight'
   },
+  ceo: { display: 'CEO Agent', kebab: 'ceo-agent', pascal: 'CeoAgent' },
   bundled: {
     display: 'Hermes Agent',
     kebab: 'hermes-bundled',
@@ -23,8 +24,8 @@ const variants = {
 }
 
 const variant = process.env.HERMES_DESKTOP_VARIANT || ''
-if (!['', 'light', 'bundled', 'store'].includes(variant)) {
-  throw new Error(`Unknown HERMES_DESKTOP_VARIANT ${variant}. expected one of (empty), light, bundled, store`)
+if (!['', 'light', 'bundled', 'store', 'ceo'].includes(variant)) {
+  throw new Error(`Unknown HERMES_DESKTOP_VARIANT ${variant}. expected one of (empty), light, bundled, store, ceo`)
 }
 
 // 'store' is a Store-submission packaging identity layered on the bundled
@@ -33,7 +34,10 @@ if (!['', 'light', 'bundled', 'store'].includes(variant)) {
 // MSIX package identity. The Store re-signs on submission.
 const store = variant === 'store'
 const light = variant === 'light'
+const ceo = variant === 'ceo'
 const name = variants[store ? 'bundled' : (variant || '')]
+// CEO Agent fork: own reverse-DNS namespace so it never shares userData with upstream Hermes.
+const orgNamespace = ceo ? 'com.jeci' : 'com.nousresearch'
 
 // The electron-updater feed channel this build PUBLISHES to. A canary
 // tag (vX.Y.Z+canary.YYYYMMDDTHHMMSSZ) writes canary.yml / light-canary.yml;
@@ -54,7 +58,7 @@ const displayName = buildCommit
 
 const kebabSuffix = buildCommit ? `-${buildCommit}` : canary ? '-canary' : ''
 const pascalSuffix = buildCommit ? `Commit${buildCommit}` : canary ? 'Canary' : ''
-const cliName = `${light ? 'hermes-light' : 'hermes'}${kebabSuffix}`
+const cliName = `${light ? 'hermes-light' : ceo ? 'ceo-agent' : 'hermes'}${kebabSuffix}`
 if (store && (canary || buildCommit)) {
   throw new Error('Store packaging is only eligible for stable releases')
 }
@@ -66,7 +70,7 @@ const identity = {
   store,
   light,
   displayName,
-  appId: `com.nousresearch.${name.kebab}${kebabSuffix}`,
+  appId: `${orgNamespace}.${name.kebab}${kebabSuffix}`,
   // Store and commit builds do not publish a release feed.
   channel: store || buildCommit ? null : light ? (canary ? 'light-canary' : 'light') : (canary ? 'canary' : 'latest'),
   appNamePascal: `${name.pascal}${pascalSuffix}`,

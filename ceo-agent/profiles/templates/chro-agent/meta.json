@@ -1,0 +1,9 @@
+{
+  "registry_id": "chro_agent",
+  "profile": "chro-agent",
+  "display": "CHRO Agent",
+  "color": "hsl(48 90% 58%)",
+  "lane": "people",
+  "reports_to": "ceo_agent",
+  "source": "people/chro-agent"
+}

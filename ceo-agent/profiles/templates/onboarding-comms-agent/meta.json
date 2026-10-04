@@ -1,0 +1,9 @@
+{
+  "registry_id": "onboarding_comms_agent",
+  "profile": "onboarding-comms-agent",
+  "display": "Onboarding Comms Agent",
+  "color": "hsl(220 75% 66%)",
+  "lane": "onboarding communications",
+  "reports_to": "cmo_agent",
+  "source": "registry"
+}

@@ -1,0 +1,9 @@
+{
+  "registry_id": "ceo_agent",
+  "profile": "ceo-agent",
+  "display": "CEO Agent",
+  "color": "hsl(262 83% 66%)",
+  "lane": "executive orchestration",
+  "reports_to": null,
+  "source": "executive/ceo-agent"
+}

@@ -1,0 +1,9 @@
+{
+  "registry_id": "cfo_agent",
+  "profile": "cfo-agent",
+  "display": "CFO Agent",
+  "color": "hsl(152 60% 52%)",
+  "lane": "finance",
+  "reports_to": "ceo_agent",
+  "source": "finance/cfo-agent"
+}

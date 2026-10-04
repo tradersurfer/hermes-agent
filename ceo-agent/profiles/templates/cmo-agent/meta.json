@@ -1,0 +1,9 @@
+{
+  "registry_id": "cmo_agent",
+  "profile": "cmo-agent",
+  "display": "CMO Agent",
+  "color": "hsl(330 75% 62%)",
+  "lane": "marketing",
+  "reports_to": "ceo_agent",
+  "source": "marketing/cmo-agent"
+}

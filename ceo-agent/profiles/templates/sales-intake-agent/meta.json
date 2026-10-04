@@ -1,0 +1,9 @@
+{
+  "registry_id": "sales_intake_agent",
+  "profile": "sales-intake-agent",
+  "display": "Sales Intake Agent",
+  "color": "hsl(172 60% 48%)",
+  "lane": "lead capture",
+  "reports_to": "cmo_agent",
+  "source": "registry"
+}

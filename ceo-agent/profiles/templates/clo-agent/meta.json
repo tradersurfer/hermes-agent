@@ -1,0 +1,9 @@
+{
+  "registry_id": "clo_agent",
+  "profile": "clo-agent",
+  "display": "CLO Agent",
+  "color": "hsl(0 70% 62%)",
+  "lane": "legal",
+  "reports_to": "ceo_agent",
+  "source": "legal/clo-agent"
+}
