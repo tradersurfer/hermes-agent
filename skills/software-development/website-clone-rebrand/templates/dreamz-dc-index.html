@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DREAMZ DC Dispensary | Washington DC Cannabis & Delivery</title>
+    <meta name="description" content="Visit DREAMZ DC Dispensary in Washington DC. Shop premium cannabis flower, pre-rolls, vapes, edibles, and more with fast delivery.">
+    <meta property="og:title" content="DREAMZ DC Dispensary | Washington DC Cannabis">
+    <meta property="og:description" content="Visit DREAMZ DC Dispensary in Washington DC. Shop premium cannabis flower, pre-rolls, vapes, edibles, and more with fast delivery.">
+    <meta property="og:url" content="https://dreamzdc.com/">
+</head>
+<body>
+    <!-- AGE GATE -->
+    <div class="age-gate-overlay">
+        <div class="age-gate-box">
+            <h2>You Must Be 21+</h2>
+            <p>By entering DREAMZ DC, you certify that you are 21 years of age or older.</p>
+            <button class="age-gate-btn" onclick="document.getElementById('ageGate').style.display='none'">ENTER</button>
+            <button class="age-gate-btn secondary" onclick="window.location.href='https://octo.quickbase.com/db/bscn22va8?a=dbpage&pageID=39'">Self-Certify</button>
+        </div>
+    </div>
+
+    <!-- HEADER with navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.jpg" alt="DREAMZ DC Logo">
+                <div class="logo-text">DREAMZ DC</div>
+            </a>
+            <nav>
+                <a href="#shop">SHOP</a>
+                <a href="#categories">CATEGORIES</a>
+                <a href="#brands">BRANDS</a>
+                <a href="#about">ABOUT</a>
+                <a href="#delivery">DELIVERY</a>
+                <a href="#faq">FAQ</a>
+                <a href="#med-reg">MED REG</a>
+                <button class="cart-btn">Cart (<span id="cartCount">0</span>)</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SELF-CERT BANNER -->
+    <div class="selfcert-banner">
+        <p><strong>NO MEDICAL CARD? NO PROBLEM!</strong> DC's Medical Cannabis Program is now OPEN to non-residents and International visitors! 21+</p>
+        <a href="https://octo.quickbase.com/db/bscn22va8?a=dbpage&pageID=39" class="selfcert-btn">Register for Instant Visitor Pass</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>DREAMZ DC <span>Dispensary</span></h1>
+            <p>Premium cannabis flower, pre-rolls, vapes, edibles, and concentrates delivered to your door in Washington DC.</p>
+            <div class="hero-buttons">
+                <a href="#shop" class="btn-primary">SHOP MENU</a>
+                <a href="#delivery" class="btn-secondary">ORDER DELIVERY</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+        <div class="container">
+            <h2>SHOP BY CATEGORY</h2>
+            <div class="shop-categories">
+                <div class="shop-cat"><span>FLOWER</span></div>
+                <div class="shop-cat"><span>PRE-ROLLS</span></div>
+                <div class="shop-cat"><span>VAPORIZERS</span></div>
+                <div class="shop-cat"><span>EDIBLES</span></div>
+                <div class="shop-cat"><span>CONCENTRATES</span></div>
+                <div class="shop-cat"><span>TOPICALS</span></div>
+                <div class="shop-cat"><span>TINCTURES</span></div>
+                <div class="shop-cat"><span>ACCESSORIES</span></div>
+                <div class="shop-cat"><span>MERCH</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="shop">
+        <div class="container">
+            <h2>DREAMZ DC POPULAR PRODUCTS</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Populated by JS from products.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="delivery">
+        <div class="container">
+            <h2>DREAMZ DC MEDICAL CANNABIS — PICKED UP & DELIVERED</h2>
+            <div class="how-it-works">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Browse & Select</h3>
+                    <p>Explore our full menu of premium cannabis products.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Self-Certify (21+)</h3>
+                    <p>No medical card? No problem. Register for an instant Visitor Pass.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Order & Receive</h3>
+                    <p>Place your order for pickup or delivery. Under 2 hours in DC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <h2>FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">WHERE IS DREAMZ DC LOCATED?</div>
+                    <div class="faq-answer"><p>DREAMZ DC is located in Washington, DC.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">WHAT ARE THE OPERATING HOURS?</div>
+                    <div class="faq-answer"><p>Open 7 days a week! Sunday: 11AM–9PM, Monday–Thursday: 2PM–9PM, Friday–Saturday: 2PM–10:45PM.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">DO I NEED A MEDICAL CARD?</div>
+                    <div class="faq-answer"><p>No medical card? No problem! <a href="https://octo.quickbase.com/db/bscn22va8?a=dbpage&pageID=39">Click here to register</a>.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">DO YOU OFFER DELIVERY?</div>
+                    <div class="faq-answer"><p>Yes! Fast, discreet delivery throughout Washington DC.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>DREAMZ DC</h3>
+                    <p>Washington DC's premier cannabis dispensary & delivery service.</p>
+                    <div>(202) 292-5071</div>
+                    <div>info@dreamzdc.com</div>
+                </div>
+                <div>
+                    <h3>SITE</h3>
+                    <ul>
+                        <li><a href="#shop">Shop</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#delivery">Delivery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>RESOURCES</h3>
+                    <ul>
+                        <li><a href="#med-reg">Medical Registration</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DREAMZ DC. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+                <p>FDA Disclaimer: These statements have not been evaluated by the FDA. Cannabis is for use only by persons 21 years of age or older.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="cartItems">
+                <p>Your cart is empty</p>
+            </div>
+            <div id="cartFooter" style="display:none">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="alert('Checkout coming soon!')">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Prefers aggressive momentum on build tasks. Enthusiastic, wants results not permission-asks ("you're doing fucking awesome!", "keep pushing it"). Frustrated by setup friction — favor shortest path, offer to do steps rather than GUI walkthroughs. Prefers concise/direct responses: "just give me the answer."
+§
+User builds DREAMZ DC and Ganjavores DC dispensary sites. Stack: Next.js + Supabase SSR. Deployed on Vercel. Branches main===master. Products from XLSX spreadsheets. Admin: admin / DREAMZ2026!. GitHub: tradersurfer/ganjavores-dc, tradersurfer/dreamz-dc.
+Workflow: Upload XLSX → expect Supabase DB fully updated → rebuild → push via PR. GitHub CLI (gh) works. Edge browser to Supabase for SQL.
+Ganjavores DC v7: Next.js + Supabase, GitHub tradersurfer/ganjavores-dc. 44 products/110 variants after catalog overhaul. Supabase creds in .env.local. Build with ganjavores-dc node_modules.
+§
+User prefers aggressive momentum: push through blockers autonomously, keep going rather than pausing for confirmation. Enthusiastic feedback ("you're doing fucking awesome!"). Frustrated by setup friction — favor shortest path, offer to do steps for them rather than GUI walkthroughs. Prefers concise/direct responses: "just give me the answer."
