@@ -33,7 +33,10 @@ function renderAt(path: string) {
 }
 
 beforeEach(() => {
-  apiMocks.getSessionStats.mockResolvedValue({ total: 14 });
+  apiMocks.getSessionStats.mockResolvedValue({
+    total: 20,
+    active_store: 14,
+  });
 });
 
 afterEach(async () => {
@@ -72,15 +75,36 @@ describe("MobileBottomNav", () => {
     expect(sessions?.getAttribute("aria-current")).toBeNull();
   });
 
-  it("shows the real session count as a badge, not a hard-coded value", async () => {
-    apiMocks.getSessionStats.mockResolvedValue({ total: 7 });
+  it("shows the active session count as a badge, not a hard-coded value", async () => {
+    apiMocks.getSessionStats.mockResolvedValue({
+      total: 20,
+      active_store: 7,
+    });
     renderAt("/sessions");
     await act(async () => {
       await Promise.resolve();
     });
-    const badge = container!.querySelector('[aria-label="7 sessions"]');
+    const badge = container!.querySelector(
+      '[aria-label="7 active sessions"]',
+    );
     expect(badge).not.toBeNull();
     expect(badge!.textContent).toBe("7");
+  });
+
+  it("caps a large badge at 99+ while keeping the exact count in its label", async () => {
+    apiMocks.getSessionStats.mockResolvedValue({
+      total: 150,
+      active_store: 150,
+    });
+    renderAt("/sessions");
+    await act(async () => {
+      await Promise.resolve();
+    });
+    const badge = container!.querySelector(
+      '[aria-label="150 active sessions"]',
+    );
+    expect(badge).not.toBeNull();
+    expect(badge!.textContent).toBe("99+");
   });
 
   it("renders no badge when the stats call fails", async () => {
@@ -90,7 +114,8 @@ describe("MobileBottomNav", () => {
       await Promise.resolve();
     });
     const badges = [...container!.querySelectorAll("[aria-label]")].filter(
-      (el) => /^\d+ sessions$/.test(el.getAttribute("aria-label") ?? ""),
+      (el) =>
+        /^\d+ active sessions$/.test(el.getAttribute("aria-label") ?? ""),
     );
     expect(badges).toHaveLength(0);
   });

@@ -19,7 +19,8 @@ import { api } from "@/lib/api";
  *   no separate Agents route in the web dashboard; the bot roster in
  *   the screenshot lives in the desktop Bot Mode plugin.
  * - Sessions: /sessions — the session list, with a badge fed by
- *   /api/sessions/stats (never a hard-coded count).
+ *   /api/sessions/stats. The badge counts active (non-archived)
+ *   sessions, not the all-in total, and never a hard-coded count.
  * - Bots Mode: /chat — the agent chat surface, which is Bot Mode's
  *   one-chat-per-agent home in the web dashboard. This tab never
  *   displays a session token or any credential.
@@ -46,15 +47,21 @@ export default function MobileBottomNav({
 }: {
   closeMobile?: () => void;
 }) {
-  const [sessionTotal, setSessionTotal] = useState<number | null>(null);
+  const [activeSessions, setActiveSessions] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     api
       .getSessionStats()
       .then((stats) => {
-        if (!cancelled && typeof stats?.total === "number") {
-          setSessionTotal(stats.total);
+        // active_store excludes archived sessions; fall back to total
+        // only if a server predates that field.
+        const count =
+          typeof stats?.active_store === "number"
+            ? stats.active_store
+            : stats?.total;
+        if (!cancelled && typeof count === "number") {
+          setActiveSessions(count);
         }
       })
       .catch(() => {
@@ -82,7 +89,7 @@ export default function MobileBottomNav({
                 aria-label={tab.label}
                 className={({ isActive }) =>
                   cn(
-                    "relative flex min-h-12 flex-col items-center justify-center gap-0.5 px-1 py-2 text-xs",
+                    "relative flex min-h-12 flex-col items-center justify-center gap-0.5 px-1 py-2 text-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d4af37]",
                     tab.isCenter
                       ? "mx-1 my-1 rounded-full bg-[#d4af37] text-black"
                       : isActive
@@ -96,13 +103,13 @@ export default function MobileBottomNav({
                     <span className="relative">
                       <Icon className="h-5 w-5" />
                       {tab.label === "Sessions" &&
-                        sessionTotal !== null &&
-                        sessionTotal > 0 && (
+                        activeSessions !== null &&
+                        activeSessions > 0 && (
                           <span
-                            aria-label={`${sessionTotal} sessions`}
+                            aria-label={`${activeSessions} active sessions`}
                             className="absolute -right-4 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#d4af37] px-1 text-[10px] font-bold text-black"
                           >
-                            {sessionTotal}
+                            {activeSessions > 99 ? "99+" : activeSessions}
                           </span>
                         )}
                     </span>
