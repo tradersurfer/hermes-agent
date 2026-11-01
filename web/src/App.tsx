@@ -63,6 +63,7 @@ import { Typography } from "@nous-research/ui/ui/components/typography/index";
 import { ConfirmDialog } from "@nous-research/ui/ui/components/confirm-dialog";
 import { cn } from "@/lib/utils";
 import { SidebarFooter } from "@/components/SidebarFooter";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import { SidebarStatusStrip, gatewayLine } from "@/components/SidebarStatusStrip";
 import { useBelowBreakpoint } from "@nous-research/ui/hooks/use-below-breakpoint";
 import { useSidebarStatus } from "@/hooks/useSidebarStatus";
@@ -828,6 +829,12 @@ export default function App() {
           </PageHeaderProvider>
         </div>
       </div>
+
+      {/* Mobile-only bottom nav: the component itself is lg:hidden, so
+          desktop layout is unchanged. It sits in flow at the bottom of
+          the shell, above the system navigation, and never overlays
+          page content. */}
+      <MobileBottomNav closeMobile={closeMobile} />
 
       <PluginSlot name="overlay" />
     </div>
