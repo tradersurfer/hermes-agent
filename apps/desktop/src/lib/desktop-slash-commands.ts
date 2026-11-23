@@ -73,6 +73,7 @@ export type DesktopActionId =
   | 'import'
   | 'journey'
   | 'new'
+  | 'open-browser'
   | 'palette'
   | 'pet'
   | 'profile'
@@ -246,6 +247,12 @@ const DESKTOP_COMMAND_SPECS: readonly DesktopCommandSpec[] = [
     description: 'Manage the agent browser [connect|disconnect|status]',
     surface: action('browser'),
     argumentMode: 'options'
+  },
+  {
+    name: '/open-browser',
+    description: 'Open the Browser pane at a URL (default: Nous Research)',
+    surface: action('open-browser'),
+    argumentMode: 'text'
   },
   {
     name: '/journey',

@@ -546,6 +546,7 @@ export const frOverrides = {
     muteHaptics: 'Couper les vibrations',
     unmuteHaptics: 'Réactiver les vibrations',
     openSettings: 'Ouvrir les paramètres',
+    openBrowser: 'Ouvrir le navigateur',
     openStarmap: 'Ouvrir le graphe de mémoire',
     enterHud: 'Mode HUD',
     exitHud: 'Quitter le mode HUD',

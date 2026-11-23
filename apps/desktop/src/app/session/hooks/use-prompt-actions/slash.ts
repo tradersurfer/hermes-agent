@@ -31,6 +31,7 @@ import { applyGoalStatusText } from '@/store/goals'
 import { dismissNotification, notify, notifyError } from '@/store/notifications'
 import { setPetScale } from '@/store/pet-gallery'
 import { $petGenInput, openPetGenerate } from '@/store/pet-generate'
+import { openDefaultBrowser } from '@/store/preview'
 import {
   $activeGatewayProfile,
   $newChatProfile,
@@ -649,6 +650,11 @@ export function useSlashCommand(deps: SlashCommandDeps) {
         new: async () => {
           prepareDefaultNewSession()
           startFreshSessionDraft()
+        },
+        // Local and instant: no agent turn, no model call. An argument is the
+        // page to load; bare `/open-browser` loads the default page.
+        'open-browser': async ctx => {
+          openDefaultBrowser(ctx.arg.trim() || undefined)
         },
         branch: async () => {
           await branchCurrentSession()

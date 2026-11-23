@@ -32,6 +32,7 @@ import {
   togglePanesFlipped,
   toggleRightSide
 } from '@/store/layout'
+import { openDefaultBrowser } from '@/store/preview'
 import { REVIEW_PANE_ID } from '@/store/review'
 import { $unreadSessionCount } from '@/store/session-dot-state'
 import { $titlebarAppActionsSide, TITLEBAR_FIXED_TOOLS } from '@/store/titlebar-app-actions'
@@ -259,6 +260,17 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
   // Static system tools — always pinned to the screen's right edge so the
   // left titlebar stays free for tabs (#107351).
   const systemTools: TitlebarTool[] = [
+    {
+      ...TITLEBAR_FIXED_TOOLS['open-browser'],
+      actionId: 'view.showBrowser',
+      icon: <TitlebarIcon name="globe" />,
+      id: 'open-browser',
+      label: t.titlebar.openBrowser,
+      onSelect: () => {
+        triggerHaptic('open')
+        openDefaultBrowser()
+      }
+    },
     {
       ...TITLEBAR_FIXED_TOOLS.settings,
       actionId: 'nav.settings',

@@ -203,6 +203,7 @@ export const ruOverrides = {
     muteHaptics: 'Выключить вибрацию',
     unmuteHaptics: 'Включить вибрацию',
     openSettings: 'Открыть настройки',
+    openBrowser: 'Открыть браузер',
     openStarmap: 'Открыть граф памяти',
     enterHud: 'Режим HUD',
     exitHud: 'Выйти из режима HUD',

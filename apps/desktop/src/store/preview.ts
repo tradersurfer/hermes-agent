@@ -1067,6 +1067,35 @@ export function toggleBrowserTab() {
   openBrowserTab()
 }
 
+/** The page the titlebar globe loads the first time the Browser opens. */
+export const DEFAULT_BROWSER_URL = 'https://www.nousresearch.com'
+
+/** A typed address: keep an explicit scheme, otherwise assume https. */
+export function normalizeBrowserUrl(raw: string): string {
+  const trimmed = raw.trim()
+
+  return /^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`
+}
+
+/** The titlebar globe and `/open-browser` are OPENS, not toggles. With no URL
+ *  they re-front a Browser that already has a page, otherwise they load
+ *  DEFAULT_BROWSER_URL. With a URL they always navigate to it. */
+export function openDefaultBrowser(url?: string) {
+  const tabs = $visiblePreviewTabs.get()
+  const current = tabs.find(tab => tab.id === browserTabId(tabs))
+
+  if (!url && current && current.target.url !== 'about:blank') {
+    openBrowserTab()
+
+    return
+  }
+
+  const target = url ? normalizeBrowserUrl(url) : DEFAULT_BROWSER_URL
+
+  recordFeatureUse('browser_pane')
+  openPreview({ kind: 'url', label: target === DEFAULT_BROWSER_URL ? 'Nous Research' : target, source: target, url: target })
+}
+
 /** Another Browser, always — the strip's "+". */
 export function newBrowserTab() {
   const id = mintBrowserTabId()

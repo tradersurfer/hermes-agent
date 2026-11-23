@@ -546,6 +546,7 @@ export const deOverrides = {
     muteHaptics: 'Haptik stummschalten',
     unmuteHaptics: 'Haptik einschalten',
     openSettings: 'Einstellungen öffnen',
+    openBrowser: 'Browser öffnen',
     openStarmap: 'Speicher-Graph öffnen',
     enterHud: 'HUD-Modus',
     exitHud: 'HUD-Modus beenden',

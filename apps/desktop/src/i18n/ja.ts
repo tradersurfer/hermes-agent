@@ -237,6 +237,7 @@ export const jaOverrides = {
     muteHaptics: '触覚フィードバックをオフ',
     unmuteHaptics: '触覚フィードバックをオン',
     openSettings: '設定を開く',
+    openBrowser: 'ブラウザを開く',
     openStarmap: 'メモリグラフを開く',
     resetHudLayout: 'HUD のサイズと位置をリセット'
   },

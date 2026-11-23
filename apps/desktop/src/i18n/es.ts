@@ -549,6 +549,7 @@ export const esOverrides = {
     muteHaptics: 'Silenciar háptica',
     unmuteHaptics: 'Activar háptica',
     openSettings: 'Abrir configuración',
+    openBrowser: 'Abrir navegador',
     openStarmap: 'Abrir grafo de memoria',
     enterHud: 'Modo HUD',
     exitHud: 'Salir del modo HUD',
